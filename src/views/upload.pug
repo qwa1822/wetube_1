@@ -1,0 +1,26 @@
+
+
+
+extends base.pug
+
+
+block content   
+  div 
+    video#preview
+    button#actionBtn Start Recoding
+  if errorMessage 
+      span=errorMessage 
+  form(method="POST",enctype="multipart/form-data")
+    label(for="video") Video File 
+    input(type="file",accept="video/*",required,id="video",name="video")
+    label(for="thumb") Thumnail File 
+    input(type="file",accept="jpg/*",required,id="thumb",name="thumb")
+
+    input(name="title",placeholder="Title",required,type="text")
+    input(type="text",placeholder="Description", name="description",required,value="Upload Video")
+    input(placeholder="Title",required,type="text",name="hashtags")
+    input(type="submit",value="Upload VIdeo")
+
+
+block scripts 
+  script(src="/static/js/recorder.js")
